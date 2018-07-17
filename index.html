@@ -1,0 +1,278 @@
+<!DOCTYpE html>
+<html>
+    <head>
+		 <title>First web aap</title>
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+         <script src="server.js" type="text/javascript"></script>
+        <style>
+            
+           .navbar-default{
+                background-color:#D98880;
+               
+            }
+            .navbar-header
+            {
+                width:100%;
+                text-align:center;
+                padding-top:10px;
+            }
+            .navbar-brand
+            {
+                font-size:45px;
+                color:#fff;
+                padding-top:15px;
+                
+            }
+            
+            .navbar-default .navbar-brand {
+                color: #fff;
+                width:100%;
+                text-align:center;
+                font-family:times new roman;
+            }
+            .container
+            {
+               
+                width:100%;
+                margin-top:-20px;
+               
+            }
+            .row1
+            {
+                position:relative;
+                left:15px;
+                width:97%;
+                height:250px;
+            }
+            .col-sm-12
+            {
+                text-align:center;
+                margin-top:10px;
+                margin-bottom:10px;
+            }
+            .col-sm-12 >.text
+            {
+                height:60px;
+            }
+            .main_text{
+                color:#fff;
+                
+            }
+            .text_con{
+                padding-top:10px;
+                padding-right:30px;
+                height:45px;
+                width:600px;
+                border-radius:08px;
+                background-color:#F8F9F9;
+                font-size:35px;
+                font-family:georgia;
+            }
+            .rdx{
+                height:40px;
+                width:230px;
+                border-radius:08px;
+                background-color:#d74f57;
+                font-size:25px;
+                color:#fff;
+                font-family:georgia;
+            }
+            .col-xs-3 {
+                margin-left:40px;
+                margin-right:40px;
+                margin-top:20px;
+                margin-bottom:20px;
+                height:260px;
+                width:320px;
+                background-color: rgba(33,33,33,0.0);
+                box-shadow: 5px 5px 36px 6px #888888;
+                
+            }
+            .row2
+            {
+                width:100%;
+                border-radius:08px;
+                text-align:center;
+               
+            }
+            .col-xs-12
+            {
+                text-align:left;
+                padding-top:10px;
+                
+            }
+            .place_text {
+                font-size:20px;
+                color:#fff;
+                margin-top:10px;
+                margin-left:20px;
+                font-family:verdana;
+                
+            }
+            .place_text1 {
+                font-size:20px;
+                color:#fff;
+                margin-top:10px;
+                margin-left:20px;
+                font-family:verdana;
+                
+            }
+            .row3
+            {
+                margin-top:-20px;
+                background-color:#F7F9F9;
+                width:100%;
+               
+                
+            }
+            .in_text 
+            {
+                font-size:18px;
+                color:#333;
+                font-family:verdana;
+            }
+            .out_text
+            {
+                font-size:18px;
+                font-family:verdana;
+                color:#5499C7;
+            }
+            .footer{
+                height:30px;
+                width:100%;
+                text-align:center;
+                background-color:#333;
+            }
+            a
+            {
+                color:#fff;
+                font-style:underline;
+            }
+        </style>
+	</head>
+	<body>
+        <nav class="navbar navbar-default">
+        <div class="container-fluid">
+        <div class="navbar-header">
+        <a class="navbar-brand" href="#">My Weather App</a>
+        </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row1" style="background-image:url('./images/1.png'); opacity:0.9;">
+                <div class="col-sm-12 text">
+                    <h2 class="main_text">Check Weather Forecast By Location</h2>
+                </div>
+                
+            <br>
+              
+                <div class="col-sm-12">
+                    <input type="text" class="text_con" name="address" placeholder="Enter City Name" id ="id_location">
+                </div> 
+                <div class="col-sm-12">
+	                <button type="button" class="rdx" onclick="checkLocation();">Check Weather</button>
+               </div>
+        </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12" style="background-color:##F2F4F4;width:100%;text-align:center;margn-top:20px;margin-bottom:20px;vertical-align:middle;">
+                      <br>
+                    <span id="error2" style="font-size:30px;color:#000;font-family:verdana;"></span>
+                </div>
+            </div>
+        </div>
+       
+        <div class="container">
+            
+            <div class="row2">
+                <div class="clearfix"></div>
+                
+                <div class="col-xs-12" style="background-color:#797D7F;height:50px;vetical-align:middle;box-shadow: 5px 5px 12px 6px #888888;">
+                  
+                    <span class="place_text">Weather Of:</span><span id="location1" class="place_text"></span>
+                   <br> 
+                </div>
+                
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    <div class="container">
+        <br>
+        <br>
+        <div class="row3">
+            <br>
+            <div class="clearfix"></div>
+            <div class="col-xs-3">
+                <br>
+               
+                <div clas="col-xs-4">
+                    <span class="in_text"> Date:</span>&nbsp;<span class="out_text" id="date"></span>
+                </div>
+                <div class="col-xs-4">
+                    <img id="pe" src="" height="30px;" width="30px;">
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Minimum Temperature :</span>&nbsp;<span class="out_text" id="min"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Maximum Temperature :</span>&nbsp;<span class="out_text" id="max"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Current Temperature :</span>&nbsp;<span class="out_text" id="curr"></span>
+                </div>
+                <div class="col-xs-12">
+                   <span class="in_text">Wind Speed :</span>&nbsp;<span class="out_text" id="wind"></span>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <br>
+                <div clas="col-xs-12">
+                    <span class="in_text"> Date:</span>&nbsp;<span class="out_text" id="date1"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Minimum Temperature :</span>&nbsp;<span class="out_text" id="min1"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Maximum Temperature :</span>&nbsp;<span class="out_text" id="max1"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Current Temperature :</span>&nbsp;<span class="out_text" id="curr1"></span>
+                </div>
+                <div class="col-xs-12">
+                   <span class="in_text">Wind Speed :</span>&nbsp;<span class="out_text" id="wind1"></span>
+                </div>
+            </div>
+            <div class="col-xs-3">
+                <br>
+                <div clas="col-xs-12">
+                    <span class="in_text"> Date:</span>&nbsp;<span class="out_text" id="date2"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Minimum Temperature :</span>&nbsp;<span class="out_text" id="min2"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Maximum Temperature :</span>&nbsp;<span class="out_text" id="max2"></span>
+                </div>
+                <div class="col-xs-12">
+                    <span class="in_text">Current Temperature :</span>&nbsp;<span class="out_text" id="curr2"></span>
+                </div>
+                <div class="col-xs-12">
+                   <span class="in_text">Wind Speed :</span>&nbsp;<span class="out_text" id="wind2"></span>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+        <div class="footer">
+             <span class="place_text1">Developed By  @<a href="https://github.com/shubhamrajsi/weather_app.git">Shubham raj</a></span>
+                 </div>
+    
+        
+   
+	    
+	</body>
+</html>
